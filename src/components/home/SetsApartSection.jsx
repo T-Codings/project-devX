@@ -26,7 +26,7 @@ export default function SetsApartSection() {
         {/* Left arrow (mobile + desktop) */}
         <button
           type="button"
-          className="absolute left-3 sm:left-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 shadow-md grid place-items-center"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 shadow-md grid place-items-center"
           aria-label="Previous"
         >
           <img className="w-5 h-5" src={lessThanIcon} alt="Previous" />
@@ -35,7 +35,7 @@ export default function SetsApartSection() {
         {/* Right arrow (mobile + desktop) */}
         <button
           type="button"
-          className="absolute right-3 sm:right-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 shadow-md grid place-items-center"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 shadow-md grid place-items-center"
           aria-label="Next"
         >
           <img className="w-5 h-5" src={greaterThanIcon} alt="Next" />

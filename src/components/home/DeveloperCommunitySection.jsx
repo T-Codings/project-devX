@@ -5,7 +5,7 @@ import communityImage from "../../assets/IMG-20250211-WA0005.jpg";
 
 export default function DeveloperCommunitySection() {
   return (
-    <section className="bg-purple-50 mt-14 mb-16 relative h-auto lg:h-[1840px] overflow-hidden">
+    <section className="bg-purple-50 mt-14 mb-20 relative lg:h-[750px] ">
       {/* ✅ MOBILE / TABLET */}
       <div className="lg:hidden px-4 sm:px-6 py-12">
         <h4 className="text-2xl sm:text-3xl font-bold font-sans leading-tight text-center max-w-md mx-auto">
@@ -29,25 +29,26 @@ export default function DeveloperCommunitySection() {
         </ul>
 
         {/* Images (mobile) */}
-        <div className="relative w-full max-w-md mx-auto mt-10">
-          <img
-            className="w-full h-auto rounded-2xl shadow"
-            src={communityImage}
-            alt="Developers working on laptops"
-            loading="lazy"
-          />
+     <div className="relative w-380 mt-10 mb-130">
 
-          <img
-            className="w-24 h-20 sm:w-28 sm:h-24 rounded-xl absolute -left-3 -top-6 shadow"
-            src={decoration1}
-            alt="Decoration"
-          />
-          <img
-            className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl absolute -right-3 -bottom-6 shadow"
-            src={decoration2}
-            alt="Decoration"
-          />
-        </div>
+  <img
+    className="w-26 h-26 sm:w-28 sm:h-24 absolute left-2 top-85 z-0"
+    src={decoration1}
+    alt="Decoration"
+  />
+  <img
+    className="w-24 h-24 sm:w-28 sm:h-28 absolute ml-96 z-0"
+    src={decoration2}
+    alt="Decoration"
+  />
+
+  <img
+    className="w-[420px] h-[380px] rounded-[15px] absolute ml-[90px] mt-[70px] z-10"
+    src={communityImage}
+    alt="Developers working on laptops"
+    loading="lazy"
+  />
+</div>
       </div>
 
       {/* ✅ DESKTOP (UNCHANGED) */}
@@ -57,7 +58,7 @@ export default function DeveloperCommunitySection() {
             Join our thriving developer community.
           </h4>
 
-          <ul className=" mt-[20px] font-sans text-[19px] leading-[22px] list-none p-0">
+          <ul className="mt-[20px] font-sans text-[19px] leading-[22px] list-none p-0">
             <li className="w-[420px]">
               <strong>Shared Knowledge:</strong> Benefit from the collective wisdom of
               our community. Ask questions, seek advice, and contribute your expertise to a supportive environment.
@@ -68,33 +69,35 @@ export default function DeveloperCommunitySection() {
             </li>
             <li className="w-[430px] mt-3">
               <strong>Networking Opportunities:</strong> Connect with experienced developers,
-              industry experts, and potential collaborators.
-              {" "}Networking is a key ingredient in a successful carrier, orralearn provides the platform
-              for meaningful connections
+              industry experts, and potential collaborators. Networking is a key ingredient in a successful carrier,
+              orralearn provides the platform for meaningful connection
             </li>
           </ul>
         </div>
 
-{/*images desktop*/}
-
-<img
-  className="w-[120px] h-[100px] rounded-[15px] ml-[-100px] mt-6 mb-4 lg:w-[180px] lg:h-[160px] lg:absolute lg:ml-[760px] lg:mt-[520px]"
-  src={decoration1}
-  alt="Decoration"
-/>
-
-<img
-  className="w-full max-w-md h-auto rounded-[15px] mx-auto mb-8 lg:w-[490px] lg:h-[440px] lg:absolute lg:ml-[900px] lg:mt-[215px]"
-  src={communityImage}
-  alt="Developers working on laptops"
-/>
-
-<img
-  className="w-[120px] h-[130px] rounded-[15px] ml-auto mr-2 mt-2 mb-8 lg:w-[170px] lg:h-[190px] lg:absolute lg:ml-[1200px] lg:mt-[98px]"
-  src={decoration2}
-  alt="Decoration"
-/>
+        {/* images desktop (exactly like your original) */}
+        <img
+          className="w-[180px] h-[160px] rounded-[15px] absolute ml-[770px] mt-[490px]"
+          src={decoration1}
+          alt="Decoration"
+        />
+        <img
+          className="w-[170px] h-[190px] rounded-[15px] absolute ml-[1200px] mt-[102px]"
+          src={decoration2}
+          alt="Decoration"
+        />
+        <img
+          className="w-[490px] h-[440px] rounded-[15px] absolute ml-[900px] mt-[215px]"
+          src={communityImage}
+          alt="Developers working on laptops"
+        />
       </div>
     </section>
   );
 }
+
+
+
+
+
+          
