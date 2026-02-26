@@ -5,44 +5,57 @@ import lessThanIcon from "../../assets/Greater_Than- 3.webp";
 
 export default function SetsApartSection() {
   return (
-    <section className="mt-[565px]">
-      <h2 className="text-[32px] font-sans font-bold text-center">What Sets Us Apart</h2>
+    <section className="mt-16 lg:mt-[565px] px-4 sm:px-6">
+   <h2 className="mt-0 sm:mt-[-80px] lg:mt-0 text-2xl sm:text-3xl lg:text-[32px] font-sans font-bold text-center">
+  What Sets Us Apart
+</h2>
 
-      <div className="flex flex-col items-center text-center w-[1120px] h-[350px] bg-purple-100 mt-[60px] ml-[280px] rounded-[25px]">
-        <img className="w-[65px] mt-[70px] mx-auto" src={scholarshipIcon} alt="Scholarship icon" />
-        <h3 className="text-[21px] font-semibold font-sans mt-5 mb-3">1. Project-Based Learning</h3>
+      <div
+        className="
+          relative
+          flex flex-col items-center text-center
+          w-full max-w-4xl
+          bg-purple-100
+          mt-10 lg:mt-[60px]
+          mx-auto
+          rounded-[25px]
+          px-6 sm:px-10
+          py-12
+        "
+      >
+        {/* Left arrow (mobile + desktop) */}
+        <button
+          type="button"
+          className="absolute left-3 sm:left-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 shadow-md grid place-items-center"
+          aria-label="Previous"
+        >
+          <img className="w-5 h-5" src={lessThanIcon} alt="Previous" />
+        </button>
 
-        <p className="w-[660px] text-[19px] font-sans leading-[23px]">
+        {/* Right arrow (mobile + desktop) */}
+        <button
+          type="button"
+          className="absolute right-3 sm:right-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/70 shadow-md grid place-items-center"
+          aria-label="Next"
+        >
+          <img className="w-5 h-5" src={greaterThanIcon} alt="Next" />
+        </button>
+
+        <img
+          className="w-14 sm:w-[65px] mx-auto"
+          src={scholarshipIcon}
+          alt="Scholarship icon"
+        />
+
+        <h3 className="text-lg sm:text-xl lg:text-[21px] font-semibold font-sans mt-5 mb-3">
+          1. Project-Based Learning
+        </h3>
+
+        <p className="max-w-xl lg:max-w-2xl text-base sm:text-lg lg:text-[19px] font-sans leading-[23px]">
           Our commitment to providing well thought out projects for our aspiring
           developers to build is what makes the mark. We ensure that our learners
           have access to top-notch educational content without the financial burden.
         </p>
-
-
-
-
-
-
-
-
-
-<div className="w-10 h-10 rounded-[30px] bg-purple-100 shadow-md ml-280 mt-[-120px]">
-<img
-          className="w-5 h-5 text-color-black ml-3 mt-3"
-          src={lessThanIcon}
-          alt="Less than symbol"
-/>
-</div>
-       
-
-        <div className="w-10 h-10 rounded-[30px] bg-purple-100 shadow-md ml-[-1118px] mt-[-30px]">
-          <img
-          className="w-5 h-5 text-color-black ml-3 mt-3"
-          src={greaterThanIcon}
-          alt="Less than symbol"
-        />
-        </div>
-        
       </div>
     </section>
   );
