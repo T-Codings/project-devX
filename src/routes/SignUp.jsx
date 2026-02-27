@@ -63,6 +63,16 @@ const SignUp = () => {
 
   const fieldError = (name) => {
     const err = errors[name] || liveErrors[name];
+    // Show confirmPassword error immediately if password and confirmPassword are both touched and mismatch
+    if (
+      name === "confirmPassword" &&
+      touched.password &&
+      touched.confirmPassword &&
+      formData.confirmPassword &&
+      formData.password !== formData.confirmPassword
+    ) {
+      return "Passwords do not match";
+    }
     return touched[name] ? err : "";
   };
 
@@ -130,7 +140,7 @@ const SignUp = () => {
                   <button
                     type="button"
                     onClick={() => setShowPass((s) => !s)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-600 hover:text-purple-700"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-600 "
                   >
                     {showPass ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -154,7 +164,7 @@ const SignUp = () => {
                   <button
                     type="button"
                     onClick={() => setShowConfirm((s) => !s)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-600 hover:text-purple-700"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-600"
                   >
                     {showConfirm ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -169,12 +179,12 @@ const SignUp = () => {
                 Create account
               </button>
 
-                <p className="mt-2 text-12 text-gray-600 text-center">
-                Already have an account?{" "}
-                <Link to="/login" className="font-semibold text-purple-700 hover:text-purple-600">
-                  Sign in
-                </Link>
-              </p>
+                <p className="mt-2 text-sm text-gray-600 text-center">
+                  Already have an account?{' '}
+                  <Link to="/login" className="font-semibold text-purple-700 hover:text-purple-600 ">
+                    Sign In
+                  </Link>
+                </p>
             </form>
           </div>
         </div>
