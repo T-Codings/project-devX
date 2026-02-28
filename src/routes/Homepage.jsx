@@ -1,4 +1,5 @@
 import React from "react";
+
 import HeroSection from "../home/HeroSection";
 import ProvenRecordsSection from "../home/ProvenRecordsSection";
 import StorySection from "../home/StorySection";
@@ -12,7 +13,7 @@ import FooterSection from "../home/FooterSection";
 export default function Homepage() {
   return (
     <div className="font-sans">
-      <Navbar />
+     
 
       <HeroSection />
       <ProvenRecordsSection />
