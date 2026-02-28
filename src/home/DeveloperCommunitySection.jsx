@@ -1,7 +1,7 @@
 import React from "react";
-import decoration1 from "../../assets/082.png";
-import decoration2 from "../../assets/080.png";
-import communityImage from "../../assets/IMG-20250211-WA0005.jpg";
+import decoration1 from "../assets/082.png";
+import decoration2 from "../assets/080.png";
+import communityImage from "../assets/IMG-20250211-WA0005.jpg";
 
 export default function DeveloperCommunitySection() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import scholarshipIcon from "../../assets/Scholarship.png";
-import greaterThanIcon from "../../assets/new_less_than.png";
-import lessThanIcon from "../../assets/Greater_Than- 3.webp";
+import scholarshipIcon from "../assets/Scholarship.png";
+import greaterThanIcon from "../assets/new_less_than.png";
+import lessThanIcon from "../assets/Greater_Than- 3.webp";
 
 export default function SetsApartSection() {
   return (

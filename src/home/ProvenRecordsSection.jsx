@@ -1,12 +1,12 @@
 // src/components/home/ProvenRecordsSection.jsx
 import React, { useMemo } from "react";
-import * as CountHooks from "../../hooks/useCountUpOnview";
-import { formatCount } from "../../utils/formatCount";
+import * as CountHooks from "../hooks/useCountUpOnview";
+import { formatCount } from "../utils/formatCount";
 
-import trophyIcon from "../../assets/Trophy.png";
-import usersIcon from "../../assets/Users.png";
-import smileyIcon from "../../assets/Smiley.png";
-import briefcaseIcon from "../../assets/Briefcase_1.png";
+import trophyIcon from "../assets/Trophy.png";
+import usersIcon from "../assets/Users.png";
+import smileyIcon from "../assets/Smiley.png";
+import briefcaseIcon from "../assets/Briefcase_1.png";
 
 export default function ProvenRecordsSection() {
   const { ref, inView } = CountHooks.useInViewOnce({ threshold: 0.35 });

@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -17,6 +19,17 @@ const SignUp = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // ✅ mark confirmPassword touched immediately when user starts typing
+    if (name === "confirmPassword" && !touched.confirmPassword) {
+      setTouched((p) => ({ ...p, confirmPassword: true }));
+    }
+
+    // ✅ optional: also mark password touched when typing so its errors can show sooner
+    if (name === "password" && !touched.password) {
+      setTouched((p) => ({ ...p, password: true }));
+    }
+
     setFormData((p) => ({ ...p, [name]: value }));
   };
 
@@ -33,10 +46,12 @@ const SignUp = () => {
     else if (!/\S+@\S+\.\S+/.test(data.email)) newErrors.email = "Email is invalid";
 
     if (!data.password) newErrors.password = "Password is required";
-    else if (data.password.length < 6) newErrors.password = "Password must be at least 6 characters";
+    else if (data.password.length < 6)
+      newErrors.password = "Password must be at least 6 characters";
 
     if (!data.confirmPassword) newErrors.confirmPassword = "Confirm your password";
-    else if (data.password !== data.confirmPassword) newErrors.confirmPassword = "Passwords do not match";
+    else if (data.password !== data.confirmPassword)
+      newErrors.confirmPassword = "Passwords do not match";
 
     return newErrors;
   };
@@ -56,6 +71,8 @@ const SignUp = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       console.log("Sign up successful", formData);
+      // Simulate successful signup and redirect to home
+      navigate("/");
     } else {
       setErrors(validationErrors);
     }
@@ -63,18 +80,14 @@ const SignUp = () => {
 
   const fieldError = (name) => {
     const err = errors[name] || liveErrors[name];
-    // Show confirmPassword error immediately if password and confirmPassword are both touched and mismatch
-    if (
-      name === "confirmPassword" &&
-      touched.password &&
-      touched.confirmPassword &&
-      formData.confirmPassword &&
-      formData.password !== formData.confirmPassword
-    ) {
-      return "Passwords do not match";
-    }
     return touched[name] ? err : "";
   };
+
+  // ✅ live mismatch logic (shows instantly while typing confirm)
+  const mismatchNow =
+    touched.confirmPassword &&
+    formData.confirmPassword.length > 0 &&
+    formData.password !== formData.confirmPassword;
 
   const inputBase =
     "w-full rounded-xl border bg-white/70 px-4 py-2 text-base sm:text-lg text-gray-900 placeholder-gray-400 shadow-sm outline-none transition focus:border-purple-400 focus:ring-1 focus:ring-purple-200";
@@ -84,19 +97,21 @@ const SignUp = () => {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-5xl">
         <div className="flex justify-center">
-          {/* ✅ CENTERED CARD */}
-          <div className="rounded-3xl bg-white/80 backdrop-blur border border-white/60 shadow-xl p-4 sm:p-6 max-w-xl w-[500px] mx-auto min-h-0 h-auto">
+          <div className="rounded-3xl bg-white/80 backdrop-blur border border-white/60 shadow-xl p-4 sm:p-6 max-w-md w-[95%] mx-auto min-h-0 h-auto">
             <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900">Sign Up</h2>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900">
+                Sign Up
+              </h2>
               <p className="mt-2 text-base sm:text-lg text-gray-600">
                 Create an account and learn with DEVX
               </p>
-            
             </div>
 
             <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="text-base sm:text-lg font-semibold text-gray-700">Full name</label>
+                <label className="text-base sm:text-lg font-semibold text-gray-700">
+                  Full name
+                </label>
                 <input
                   name="fullName"
                   type="text"
@@ -104,13 +119,19 @@ const SignUp = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Enter your full name"
-                  className={`${inputBase} ${fieldError("fullName") ? inputError : "border-gray-200"}`}
+                  className={`${inputBase} ${
+                    fieldError("fullName") ? inputError : "border-gray-200"
+                  }`}
                 />
-                {fieldError("fullName") && <p className="mt-1 text-sm text-red-600">{fieldError("fullName")}</p>}
+                {fieldError("fullName") && (
+                  <p className="mt-1 text-sm text-red-600">{fieldError("fullName")}</p>
+                )}
               </div>
 
               <div>
-                <label className="text-base sm:text-lg font-semibold text-gray-700">Email</label>
+                <label className="text-base sm:text-lg font-semibold text-gray-700">
+                  Email
+                </label>
                 <input
                   name="email"
                   type="email"
@@ -119,13 +140,19 @@ const SignUp = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Enter your email"
-                  className={`${inputBase} ${fieldError("email") ? inputError : "border-gray-200"}`}
+                  className={`${inputBase} ${
+                    fieldError("email") ? inputError : "border-gray-200"
+                  }`}
                 />
-                {fieldError("email") && <p className="mt-1 text-sm text-red-600">{fieldError("email")}</p>}
+                {fieldError("email") && (
+                  <p className="mt-1 text-sm text-red-600">{fieldError("email")}</p>
+                )}
               </div>
 
               <div>
-                <label className="text-base sm:text-lg font-semibold text-gray-700">Password</label>
+                <label className="text-base sm:text-lg font-semibold text-gray-700">
+                  Password
+                </label>
                 <div className="relative">
                   <input
                     name="password"
@@ -135,21 +162,31 @@ const SignUp = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Create a password"
-                    className={`${inputBase} pr-12 ${fieldError("password") ? inputError : "border-gray-200"}`}
+                    className={`${inputBase} pr-12 ${
+                      fieldError("password") ? inputError : "border-gray-200"
+                    }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPass((s) => !s)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-600 "
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-600"
                   >
-                    {showPass ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    {showPass ? (
+                      <EyeOff className="w-5 h-5" />
+                    ) : (
+                      <Eye className="w-5 h-5" />
+                    )}
                   </button>
                 </div>
-                {fieldError("password") && <p className="mt-1 text-sm text-red-600">{fieldError("password")}</p>}
+                {fieldError("password") && (
+                  <p className="mt-1 text-sm text-red-600">{fieldError("password")}</p>
+                )}
               </div>
 
               <div>
-                <label className="text-base sm:text-lg font-semibold text-gray-700">Confirm password</label>
+                <label className="text-base sm:text-lg font-semibold text-gray-700">
+                  Confirm password
+                </label>
                 <div className="relative">
                   <input
                     name="confirmPassword"
@@ -159,17 +196,32 @@ const SignUp = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Repeat password"
-                    className={`${inputBase} pr-12 ${fieldError("confirmPassword") ? inputError : "border-gray-200"}`}
+                    className={`${inputBase} pr-12 ${
+                      mismatchNow ? inputError : "border-gray-200"
+                    }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirm((s) => !s)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-600"
                   >
-                    {showConfirm ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    {showConfirm ? (
+                      <EyeOff className="w-5 h-5" />
+                    ) : (
+                      <Eye className="w-5 h-5" />
+                    )}
                   </button>
                 </div>
-                {fieldError("confirmPassword") && <p className="mt-1 text-sm text-red-600">{fieldError("confirmPassword")}</p>}
+
+                {/* ✅ show mismatch instantly */}
+                {mismatchNow && (
+                  <p className="mt-1 text-sm text-red-600">Passwords do not match</p>
+                )}
+
+                {/* show "Confirm your password" only if empty & touched */}
+                {!formData.confirmPassword && fieldError("confirmPassword") && (
+                  <p className="mt-1 text-sm text-red-600">{fieldError("confirmPassword")}</p>
+                )}
               </div>
 
               <button
@@ -179,12 +231,15 @@ const SignUp = () => {
                 Create account
               </button>
 
-                <p className="mt-2 text-sm text-gray-600 text-center">
-                  Already have an account?{' '}
-                  <Link to="/login" className="font-semibold text-purple-700 hover:text-purple-600 ">
-                    Sign In
-                  </Link>
-                </p>
+              <p className="mt-2 text-sm text-gray-600 text-center">
+                Already have an account?{" "}
+                <Link
+                  to="/login"
+                  className="font-semibold text-purple-700 hover:text-purple-600"
+                >
+                  Sign In
+                </Link>
+              </p>
             </form>
           </div>
         </div>

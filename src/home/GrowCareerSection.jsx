@@ -1,5 +1,5 @@
 import React from "react";
-import careerImage from "../../assets/Group 39531_1.png";
+import careerImage from "../assets/Group 39531_1.png";
 
 export default function GrowCareerSection() {
   return (

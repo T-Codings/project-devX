@@ -1,9 +1,9 @@
 import React from "react";
 
-import footerTwitter from "../../assets/white_bird-removebg-preview.png";
-import footerLinkedin from "../../assets/LINKED IN 2.png";
-import footerFacebook from "../../assets/image 3.jpg";
-import footerGithub from "../../assets/gthub_2-removebg-preview.png";
+import footerTwitter from "../assets/white_bird-removebg-preview.png";
+import footerLinkedin from "../assets/LINKED IN 2.png";
+import footerFacebook from "../assets/image 3.jpg";
+import footerGithub from "../assets/gthub_2-removebg-preview.png";
 
 export default function FooterSection() {
   return (

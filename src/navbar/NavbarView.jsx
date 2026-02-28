@@ -29,6 +29,7 @@ export default function NavbarView({ isAuthenticated, userEmail, onLogout }) {
             <li><Link to="/community" className="hover:text-gray-800">Community</Link></li>
             <li><Link to="/contact" className="hover:text-gray-800">Contact Us</Link></li>
             <li><Link to="/faqs" className="hover:text-gray-800">FAQs</Link></li>
+            <li><Link to="/dashboard" className="hover:text-gray-800">Dashboard</Link></li>
           </ul>
 
           {/* Desktop right side */}

@@ -1,5 +1,5 @@
 import React from "react";
-import storyImage from "../../assets/IMG-20250211-WA0006.jpg";
+import storyImage from "../assets/IMG-20250211-WA0006.jpg";
 
 export default function StorySection() {
   return (

@@ -1,30 +1,62 @@
-import { Routes, Route } from "react-router-dom";
-import Homepage from "./components/Homepage";
-import SignUp from "./routes/SignUp";
-import SignIn from "./routes/SignIn";
-import Dashboard from "./components/Dashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
-import ForgotPassword from "./routes/ForgotPassword";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 
-function App() {
+import Navbar from "./navbar/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import Homepage from "./routes/Homepage";
+import Login from "./routes/LogIn.jsx";
+import SignUp from "./routes/Signup";
+import ForgotPassword from "./routes/ForgotPassword";
+import Dashboard from "./routes/Dashboard";
+import Programs  from './routes/Programs.jsx'; // Ensure named import
+
+
+// ✅ Layout that shows Navbar only for routes inside it
+function MainLayout() {
   return (
-    <div className="App overflow-x-hidden">
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<SignIn />} />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-      </Routes>
-    </div>
+    <>
+      <Navbar />
+      <Outlet />
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* ✅ Pages WITHOUT Navbar */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+
+          {/* ✅ Pages WITH Navbar */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Homepage />} />
+
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+
+            <Route
+          path="/programs"
+          element={
+            <ProtectedRoute>
+              <Programs />
+            </ProtectedRoute>
+          }
+        />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+}

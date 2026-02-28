@@ -1,11 +1,11 @@
 import React from "react";
 
-import mentor1 from "../../assets/ATO.jpg";
-import mentor2 from "../../assets/MARK.avif";
-import mentor3 from "../../assets/Bade.webp";
-import mentor4 from "../../assets/Melo.jpeg";
-import twitterIcon from "../../assets/twitter logo.png";
-import linkedinIcon from "../../assets/download linkedin.png";
+import mentor1 from "../assets/ATO.jpg";
+import mentor2 from "../assets/MARK.avif";
+import mentor3 from "../assets/Bade.webp";
+import mentor4 from "../assets/Melo.jpeg";
+import twitterIcon from "../assets/twitter logo.png";
+import linkedinIcon from "../assets/download linkedin.png";
 
 function MentorCard({ img, name, role, bio }) {
   return (
