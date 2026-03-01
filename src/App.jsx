@@ -2,16 +2,16 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./navbar/Navbar";
-import { Footer } from "./home/Footer.";
+import  FooterSection  from "./home/FooterSection.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Homepage from "./routes/Homepage";
-import { LogIn } from "./routes/LogIn.jsx";
-import { SignUp } from "./routes/SignUp.jsx";
-import { ForgotPassword } from "./routes/ForgotPassword.jsx";
-import { Dashboard } from "./routes/Dashboard.jsx";
-import { Programs } from "./routes/Programs.jsx";
-import { WhyTPU } from "./routes/whyTPU.jsx";
-import { Community } from "./routes/Community.jsx";
+import LogIn  from "./routes/LogIn.jsx";
+import  SignUp  from "./routes/SignUp.jsx";
+import  ForgotPassword  from "./routes/ForgotPassword.jsx";
+import  Dashboard  from "./routes/Dashboard.jsx";
+import  Programs  from "./routes/Programs.jsx";
+import  WhyTPU from "./routes/whyTPU.jsx";
+import  Community  from "./routes/Community.jsx";
 import FAQs from "./routes/FAQs.jsx";
 import Contact from "./routes/Contact.jsx";
 
@@ -20,7 +20,7 @@ function MainLayout() {
     <>
       <Navbar />
       <Outlet />
-      <Footer />
+      <FooterSection />
     </>
   );
 }
@@ -86,6 +86,8 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
+
           </Route>
         </Routes>
       </Router>

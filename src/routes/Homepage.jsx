@@ -22,7 +22,7 @@ export default function Homepage() {
       <DeveloperCommunitySection />
       <GrowCareerSection />
       <MentorsSection />
-      <FooterSection />
+
     </div>
   );
 }

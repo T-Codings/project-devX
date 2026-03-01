@@ -73,7 +73,7 @@ const faqs = [
 
 function Pill({ children }) {
   return (
-    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 border border-purple-200">
+    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 border border-purple-200 font-sans">
       {children}
     </span>
   );
@@ -81,12 +81,15 @@ function Pill({ children }) {
 
 function ProgramCard({ p }) {
   return (
-    <div className="rounded-3xl bg-white border border-gray-200 shadow-sm overflow-hidden">
+    <div className="rounded-3xl bg-white border border-gray-200 shadow-sm overflow-hidden font-sans">
       <div className="h-1 w-full bg-purple-900" />
 
       <div className="p-6">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900">{p.title}</h3>
+          {/* h3 uses same typography vibe: font-sans + semibold + tight */}
+          <h3 className="font-sans font-semibold leading-tight text-lg sm:text-xl text-gray-900">
+            {p.title}
+          </h3>
           <Pill>{p.level}</Pill>
         </div>
 
@@ -116,13 +119,13 @@ function ProgramCard({ p }) {
         <div className="mt-6 flex items-center gap-3">
           <Link
             to="/signup"
-            className="w-full rounded-xl py-3 font-semibold text-white bg-purple-900 text-center"
+            className="w-full rounded-xl py-3 font-sans text-base sm:text-lg font-semibold text-white bg-purple-900 text-center"
           >
             Apply Now
           </Link>
           <Link
             to="/contact"
-            className="w-full rounded-xl py-3 font-semibold text-purple-900 bg-white border border-purple-200 text-center"
+            className="w-full rounded-xl py-3 font-sans text-base sm:text-lg font-semibold text-purple-900 bg-white border border-purple-200 text-center"
           >
             Talk to Us
           </Link>
@@ -134,18 +137,20 @@ function ProgramCard({ p }) {
 
 export default function Programs() {
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-12">
+    <div className="min-h-screen bg-gray-50 px-4 py-12 font-sans">
       <div className="max-w-6xl mx-auto">
         {/* HERO */}
         <div className="rounded-3xl bg-white border border-gray-200 shadow-sm p-8 sm:p-10">
           <div className="flex flex-col items-center text-center">
             <Pill>TPU Programs</Pill>
 
-            <h1 className="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900">
+            {/* Same heading scale concept as Hero (but slightly smaller for inner page) */}
+            <h1 className="mt-4 font-sans font-semibold leading-tight text-3xl sm:text-4xl lg:text-5xl text-gray-900">
               Choose a program. Build real skills. Ship projects.
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-2xl">
+            {/* Same paragraph typography as Hero */}
+            <p className="mt-4 font-sans text-base sm:text-lg leading-7 sm:leading-8 text-gray-700 max-w-2xl">
               TPU programs are practical and structured. You’ll learn step-by-step, build portfolio-ready
               projects, and get feedback that helps you improve quickly.
             </p>
@@ -153,13 +158,13 @@ export default function Programs() {
             <div className="mt-7 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
                 href="#programs"
-                className="rounded-xl px-6 py-3 font-semibold text-white bg-purple-900 text-center"
+                className="rounded-xl px-6 py-3 font-sans text-base sm:text-lg font-semibold text-white bg-purple-900 text-center"
               >
                 View Programs
               </a>
               <Link
                 to="/contact"
-                className="rounded-xl px-6 py-3 font-semibold text-purple-900 bg-white border border-purple-200 text-center"
+                className="rounded-xl px-6 py-3 font-sans text-base sm:text-lg font-semibold text-purple-900 bg-white border border-purple-200 text-center"
               >
                 Ask a Question
               </Link>
@@ -168,15 +173,21 @@ export default function Programs() {
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
               <div className="rounded-2xl bg-gray-50 border border-gray-200 p-5 text-left">
                 <p className="text-sm text-gray-600">Mentor feedback</p>
-                <p className="text-2xl font-extrabold text-gray-900 mt-1">Weekly</p>
+                <p className="mt-1 font-sans font-semibold leading-tight text-2xl text-gray-900">
+                  Weekly
+                </p>
               </div>
               <div className="rounded-2xl bg-gray-50 border border-gray-200 p-5 text-left">
                 <p className="text-sm text-gray-600">Projects shipped</p>
-                <p className="text-2xl font-extrabold text-gray-900 mt-1">3–6</p>
+                <p className="mt-1 font-sans font-semibold leading-tight text-2xl text-gray-900">
+                  3–6
+                </p>
               </div>
               <div className="rounded-2xl bg-gray-50 border border-gray-200 p-5 text-left">
                 <p className="text-sm text-gray-600">Support</p>
-                <p className="text-2xl font-extrabold text-gray-900 mt-1">Community</p>
+                <p className="mt-1 font-sans font-semibold leading-tight text-2xl text-gray-900">
+                  Community
+                </p>
               </div>
             </div>
           </div>
@@ -186,8 +197,10 @@ export default function Programs() {
         <div id="programs" className="mt-10">
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">Our Programs</h2>
-              <p className="mt-2 text-gray-700 max-w-2xl">
+              <h2 className="font-sans font-semibold leading-tight text-2xl sm:text-3xl text-gray-900">
+                Our Programs
+              </h2>
+              <p className="mt-2 font-sans text-base sm:text-lg leading-7 sm:leading-8 text-gray-700 max-w-2xl">
                 Pick a program that matches your current level. Each track comes with projects and practical guidance.
               </p>
             </div>
@@ -208,10 +221,10 @@ export default function Programs() {
 
         {/* HOW IT WORKS */}
         <div className="mt-12 rounded-3xl bg-white border border-gray-200 shadow-sm p-8 sm:p-10">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center">
+          <h2 className="font-sans font-semibold leading-tight text-2xl sm:text-3xl text-gray-900 text-center">
             How it works
           </h2>
-          <p className="mt-2 text-gray-700 text-center max-w-2xl mx-auto">
+          <p className="mt-2 font-sans text-base sm:text-lg leading-7 sm:leading-8 text-gray-700 text-center max-w-2xl mx-auto">
             A simple system to help you learn consistently and build real projects.
           </p>
 
@@ -225,8 +238,12 @@ export default function Programs() {
                 <p className="text-xs font-semibold text-purple-800 bg-purple-100 border border-purple-200 inline-flex px-3 py-1 rounded-full">
                   {s.step}
                 </p>
-                <h3 className="mt-3 font-bold text-gray-900">{s.title}</h3>
-                <p className="mt-2 text-sm text-gray-700">{s.text}</p>
+                <h3 className="mt-3 font-sans font-semibold leading-tight text-lg text-gray-900">
+                  {s.title}
+                </h3>
+                <p className="mt-2 font-sans text-sm sm:text-base leading-6 text-gray-700">
+                  {s.text}
+                </p>
               </div>
             ))}
           </div>
@@ -234,15 +251,19 @@ export default function Programs() {
 
         {/* FAQ */}
         <div className="mt-12 rounded-3xl bg-white border border-gray-200 shadow-sm p-8 sm:p-10">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center">
+          <h2 className="font-sans font-semibold leading-tight text-2xl sm:text-3xl text-gray-900 text-center">
             Frequently asked questions
           </h2>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             {faqs.map((f) => (
               <div key={f.q} className="rounded-2xl bg-gray-50 border border-gray-200 p-6">
-                <h3 className="font-bold text-gray-900">{f.q}</h3>
-                <p className="mt-2 text-sm text-gray-700 leading-relaxed">{f.a}</p>
+                <h3 className="font-sans font-semibold leading-tight text-lg text-gray-900">
+                  {f.q}
+                </h3>
+                <p className="mt-2 font-sans text-sm sm:text-base leading-6 text-gray-700">
+                  {f.a}
+                </p>
               </div>
             ))}
           </div>
@@ -252,8 +273,10 @@ export default function Programs() {
         <div className="mt-12 rounded-3xl bg-purple-900 text-white p-8 sm:p-10 shadow-sm">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold">Ready to start?</h2>
-              <p className="mt-2 text-white/90 max-w-2xl">
+              <h2 className="font-sans font-semibold leading-tight text-2xl sm:text-3xl text-white">
+                Ready to start?
+              </h2>
+              <p className="mt-2 font-sans text-base sm:text-lg leading-7 sm:leading-8 text-white/90 max-w-2xl">
                 Join a program and begin building real projects that improve your skills and your portfolio.
               </p>
             </div>
@@ -261,13 +284,13 @@ export default function Programs() {
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <Link
                 to="/signup"
-                className="rounded-xl px-6 py-3 font-semibold text-purple-900 bg-white text-center"
+                className="rounded-xl px-6 py-3 font-sans text-base sm:text-lg font-semibold text-purple-900 bg-white text-center"
               >
                 Create Account
               </Link>
               <Link
                 to="/contact"
-                className="rounded-xl px-6 py-3 font-semibold text-white bg-white/10 border border-white/20 text-center"
+                className="rounded-xl px-6 py-3 font-sans text-base sm:text-lg font-semibold text-white bg-white/10 border border-white/20 text-center"
               >
                 Contact Us
               </Link>
@@ -275,9 +298,9 @@ export default function Programs() {
           </div>
         </div>
 
-        <p className="mt-10 text-center text-sm text-gray-500">
+        <p className="mt-10 text-center font-sans text-sm sm:text-base leading-6 text-gray-500">
           Not sure what to choose?{" "}
-          <Link to="/contact" className="font-semibold text-purple-700">
+          <Link to="/contact" className="font-sans font-semibold text-purple-700">
             Message us
           </Link>{" "}
           and we’ll guide you.

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import footerTwitter from "../assets/white_bird-removebg-preview.png";
 import footerLinkedin from "../assets/LINKED IN 2.png";
 import footerFacebook from "../assets/image 3.jpg";
@@ -20,10 +20,11 @@ export default function FooterSection() {
           <div>
             <h3 className="font-semibold mb-4">Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-purple-400">About Us</a></li>
-              <li><a href="#" className="hover:text-purple-400">Programs</a></li>
-              <li><a href="#" className="hover:text-purple-400">Contacts</a></li>
-              <li><a href="#" className="hover:text-purple-400">FAQs</a></li>
+              <li><Link to="/programs" className="hover:text-gray-800">Our Programs</Link></li>
+              <li><Link to="/why-tpu" className="hover:text-gray-800">Why TPU</Link></li>
+              <li><Link to="/community" className="hover:text-gray-800">Community</Link></li>
+              <li><Link to="contact" className="hover:text-gray-800">Contact Us</Link> </li>
+              <li><Link to="/faqs" className="hover:text-gray-800">FAQs</Link></li>
             </ul>
           </div>
 
