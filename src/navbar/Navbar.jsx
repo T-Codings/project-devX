@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import NavbarView from "./NavbarView"
-
+import NavbarView from "./NavbarView";
 
 export default function Navbar() {
   const { isAuthenticated, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = async () => {
-    try {
-      await logout?.();
-    } finally {
-      setIsMenuOpen(false);
-    }
+    await logout?.();
+    setIsMenuOpen(false);
   };
 
   return (
@@ -22,6 +18,7 @@ export default function Navbar() {
       onLogout={handleLogout}
       isMenuOpen={isMenuOpen}
       onToggleMenu={() => setIsMenuOpen((v) => !v)}
+      onCloseMenu={() => setIsMenuOpen(false)}
     />
   );
 }

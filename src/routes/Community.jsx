@@ -3,7 +3,7 @@ import React from "react";
 export default function Community() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-purple-50 px-4 py-12 font-sans">
-      <h1 className="font-semibold leading-tight text-3xl sm:text-4xl lg:text-6xl text-purple-700 mb-4 text-center">
+      <h1 className="font-semibold leading-tight text-3xl sm:text-4xl lg:text-6xl text-gray-800 mb-4 text-center">
         Community
       </h1>
 
@@ -23,7 +23,7 @@ export default function Community() {
           <li>Collaborate on open-source initiatives</li>
         </ul>
 
-        <h2 className="font-semibold leading-tight text-xl sm:text-2xl text-purple-600 mb-2">
+        <h2 className="font-semibold leading-tight text-xl sm:text-2xl text-gray-800 mb-2">
           Contact & Support
         </h2>
 
