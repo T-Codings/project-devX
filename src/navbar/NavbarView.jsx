@@ -118,7 +118,8 @@ export default function NavbarView({
                   </Link>
                   <Link
                     to="/signup"
-                    className="w-full max-w-xs text-center px-6 py-2 bg-purple-800 text-white rounded-lg hover:bg-purple-700 transition"
+                    className="w-full max-w-xs text-center px-6 py-2 bg-purple-800 
+                    text-white rounded-lg hover:bg-purple-700 transition"
                     onClick={onCloseMenu}
                   >
                     Sign Up
